@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import { Provider } from "react-redux";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 
-function App() {
+import store from "./store";
+import ClickPage from "./components/pages/ClickPage";
+import TopTenPage from "./components/pages/TopTenPage";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Switch>
+          <Route path="/:team" component={ClickPage} />
+          <Route exact path="/" component={TopTenPage} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
-}
+};
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+  }
+  body {
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: .8px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  *, *::after, *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+`;
 
 export default App;
