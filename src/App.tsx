@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
     font-family: 'Poppins', sans-serif;
-    letter-spacing: .8px;
+    
     position: fixed;
     top: 0;
     left: 0;
@@ -39,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      letter-spacing: .1rem;
   }
 `;
 

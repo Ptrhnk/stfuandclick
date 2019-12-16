@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { appliftingBlue, globalWhite } from "../../constants";
+import {
+  appliftingBlue,
+  globalWhite,
+  contentRowOne,
+  contentRowTwo
+} from "../../constants";
 
 const Row = styled.div<{ current: boolean; order: number }>`
   width: 100%;
@@ -10,7 +15,11 @@ const Row = styled.div<{ current: boolean; order: number }>`
   flex-shrink: 0;
 
   background-color: ${({ current, order }) =>
-    current ? `${appliftingBlue}` : order % 2 ? "#a4d4fc" : "#a4c5fc"};
+    current
+      ? `${appliftingBlue}`
+      : order % 2
+      ? `${contentRowOne}`
+      : `${contentRowTwo}`};
   font-size: ${({ current }) => (current ? "2.6rem" : "1.5rem")};
   font-weight: ${({ current }) => (current ? "600" : "400")};
   color: ${({ current }) => (current ? `${globalWhite}` : " black")};

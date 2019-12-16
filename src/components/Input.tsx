@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { inputBorder } from "../constants";
 
 const Container = styled.div`
   width: 50%;
@@ -9,9 +10,9 @@ const StyledInput = styled.input`
   border-radius: 0.5rem;
   height: 5rem;
   outline: none;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   width: 100%;
-  border: 1px solid grey;
+  border: ${inputBorder};
   padding: 1rem;
 `;
 

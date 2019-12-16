@@ -12,6 +12,7 @@ import PageContainer from "../layout/PageContainer";
 import Content from "../layout/Content";
 import Leaderboard from "../Leaderboard";
 import { Button } from "../Button";
+import { ReadOnlyInput } from "../ReadOnlyInput";
 import { increment } from "../../actions/clickActions";
 import { setSession } from "../../actions/sessionActions";
 import { fetchData } from "../../actions/leadersActions";
@@ -45,7 +46,6 @@ interface ClickPage {
   leaders: Leader[];
   clicks: Clicks;
   fetchData: () => void;
-  // increment: (team: string, session: string) => void;
   increment: (team: any, session: string) => void;
   setSession: (session: string) => void;
   session: string;
@@ -59,7 +59,7 @@ const ClickPage: React.FC<ClickPage> = ({
   setSession,
   session
 }) => {
-  const { team } = useParams();
+  const { team }: { team?: string } = useParams();
 
   useEffect(() => {
     setSession(uuidv4());
@@ -103,7 +103,10 @@ const ClickPage: React.FC<ClickPage> = ({
           <Content>
             <Leaderboard leaders={leaders} team={team} />
           </Content>
-          <Footer>{"Want to be top? STFU and click!"}</Footer>
+          <Footer>
+            <div>{`Too lazy 2 click? Let UR fellaz click 4 U:`}</div>
+            <ReadOnlyInput value={`stfuandclick.com/${team}`} />
+          </Footer>
         </PageContainer>
       </Background>
     </>
