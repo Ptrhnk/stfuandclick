@@ -1,12 +1,7 @@
 import React from "react";
 
 import LeaderboardRow from "./LeaderboardRow";
-
-interface Leader {
-  order: number;
-  team: string;
-  clicks: number;
-}
+import { Leader } from "../common/types";
 
 interface Leaderboard {
   leaders: Array<Leader>;

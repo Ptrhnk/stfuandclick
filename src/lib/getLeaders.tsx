@@ -1,10 +1,5 @@
 import axios from "axios";
-
-interface Leader {
-  order: number;
-  team: string;
-  clicks: number;
-}
+import { Leader } from "../common/types";
 
 const api = axios.create({
   baseURL: "https://klikuj.herokuapp.com/api/v1",

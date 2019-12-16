@@ -19,6 +19,7 @@ import { fetchData } from "../../actions/leadersActions";
 import { appliftingBlue } from "../../constants";
 import Footer from "../layout/Footer";
 import ContentHeading from "../layout/ContentHeading";
+import { Leader, Clicks } from "../../common/types";
 
 const Box = styled.div`
   display: flex;
@@ -30,17 +31,6 @@ const Counter = styled.div`
   font-size: 3.8rem;
   color: ${appliftingBlue};
 `;
-
-interface Leader {
-  order: number;
-  team: string;
-  clicks: number;
-}
-
-interface Clicks {
-  your_clicks: number;
-  team_clicks: number;
-}
 
 interface ClickPage {
   leaders: Leader[];

@@ -17,6 +17,7 @@ import Content from "../layout/Content";
 import Leaderboard from "../Leaderboard";
 import Footer from "../layout/Footer";
 import ContentHeading from "../layout/ContentHeading";
+import { Leader, Clicks } from "../../common/types";
 
 const TopTen = styled.div`
   font-size: 1.8rem;
@@ -30,12 +31,6 @@ const TopTen = styled.div`
 const AlignedRow = styled(HeaderRow)`
   align-items: flex-end;
 `;
-
-interface Leader {
-  order: number;
-  team: string;
-  clicks: number;
-}
 
 interface TopTenPage {
   leaders: Array<Leader>;
@@ -92,11 +87,6 @@ const TopTenPage: React.FC<TopTenPage> = ({
     </>
   );
 };
-
-interface Clicks {
-  your_clicks: number;
-  team_clicks: number;
-}
 
 interface StateFromProps {
   leaders: Leader[];
