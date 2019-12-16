@@ -21,9 +21,8 @@ import { Leader, Clicks } from "../../common/types";
 
 const TopTen = styled.div`
   font-size: 1.8rem;
-  margin: 1rem;
+  margin-top: 1.6rem;
   padding: 0.6rem 1.8rem;
-  border-radius: 0.5rem;
   background-color: ${appliftingBlue};
   color: ${globalWhite};
 `;
@@ -65,26 +64,24 @@ const TopTenPage: React.FC<TopTenPage> = ({
   };
 
   return (
-    <>
-      <Background>
-        <PageContainer>
-          <Header>
-            <AlignedRow>
-              <Input value={inputText} onChange={e => onChange(e)} />
-              <Button onClick={e => handleClick(e)} small={true} />
-            </AlignedRow>
-            <HeaderRow>
-              <TopTen>{"TOP 10 Clickers"}</TopTen>
-            </HeaderRow>
-          </Header>
-          <ContentHeading />
-          <Content>
-            <Leaderboard leaders={leaders} />
-          </Content>
-          <Footer>{"Want to be top? STFU and click!"}</Footer>
-        </PageContainer>
-      </Background>
-    </>
+    <Background>
+      <PageContainer>
+        <Header>
+          <AlignedRow>
+            <Input value={inputText} onChange={e => onChange(e)} />
+            <Button onClick={e => handleClick(e)} small={true} />
+          </AlignedRow>
+          <HeaderRow>
+            <TopTen>{"TOP 10 CLICKERS:"}</TopTen>
+          </HeaderRow>
+        </Header>
+        <ContentHeading />
+        <Content>
+          <Leaderboard leaders={leaders} />
+        </Content>
+        <Footer>{"Want to be top? STFU and click!"}</Footer>
+      </PageContainer>
+    </Background>
   );
 };
 

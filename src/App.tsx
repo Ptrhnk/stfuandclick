@@ -14,7 +14,7 @@ const App = () => {
         <GlobalStyle />
         <Switch>
           <Route path="/:team" component={ClickPage} />
-          <Route exact path="/" component={TopTenPage} />
+          <Route exact={true} path="/" component={TopTenPage} />
         </Switch>
       </BrowserRouter>
     </Provider>
