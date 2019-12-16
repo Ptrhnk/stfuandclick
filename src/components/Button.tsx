@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { appliftingBlue, appliftingBlueHover, globalWhite } from "../constants";
 
-const ClickBtn = styled.button`
+const ClickBtn = styled.button<{ small: boolean }>`
   width: ${({ small }) => (small ? "40%" : "100%")};
   background-color: ${appliftingBlue};
   color: ${globalWhite};
@@ -23,7 +23,12 @@ const ClickBtn = styled.button`
   }
 `;
 
-export const Button = ({ onClick, small }) => {
+interface Button {
+  small?: any;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export const Button: React.FC<Button> = ({ onClick, small }) => {
   return (
     <ClickBtn onClick={onClick} small={small}>
       {" "}

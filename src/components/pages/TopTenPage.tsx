@@ -31,7 +31,23 @@ const AlignedRow = styled(HeaderRow)`
   align-items: flex-end;
 `;
 
-const TopTenPage = ({ leaders, fetchData, increment }) => {
+interface Leader {
+  order: number;
+  team: string;
+  clicks: number;
+}
+
+interface TopTenPage {
+  leaders: Array<Leader>;
+  fetchData: any;
+  increment: any;
+}
+
+const TopTenPage: React.FC<TopTenPage> = ({
+  leaders,
+  fetchData,
+  increment
+}) => {
   const [inputText, setInputText] = useState("");
   const history = useHistory();
 
@@ -39,7 +55,7 @@ const TopTenPage = ({ leaders, fetchData, increment }) => {
     fetchData();
   }, [fetchData]);
 
-  const handleClick = e => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (inputText.length < 1) {
       alert("Fill some team name!");
@@ -49,7 +65,7 @@ const TopTenPage = ({ leaders, fetchData, increment }) => {
     increment(inputText, uuidv4());
   };
 
-  const onChange = e => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
   };
 
@@ -77,7 +93,7 @@ const TopTenPage = ({ leaders, fetchData, increment }) => {
   );
 };
 
-const mapStateToProps = ({ leaders, clicks }) => ({
+const mapStateToProps = ({ leaders, clicks }: any) => ({
   leaders,
   clicks
 });

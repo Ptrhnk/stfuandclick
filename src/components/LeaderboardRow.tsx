@@ -27,7 +27,19 @@ const TeamInfo = styled.div`
   flex-grow: 1;
 `;
 
-const LeaderboardRow = ({ order, team, clicks, current }) => {
+interface LeaderboardRow {
+  order: number;
+  team: string;
+  clicks: number;
+  current: boolean;
+}
+
+const LeaderboardRow: React.FC<LeaderboardRow> = ({
+  order,
+  team,
+  clicks,
+  current
+}) => {
   return (
     <ContentRow current={current} order={order}>
       <Order>{order}</Order>

@@ -30,7 +30,27 @@ const Counter = styled.div`
   color: ${appliftingBlue};
 `;
 
-const ClickPage = ({
+interface Leader {
+  order: number;
+  team: string;
+  clicks: number;
+}
+
+interface Clicks {
+  your_clicks: number;
+  team_clicks: number;
+}
+
+interface ClickPage {
+  leaders: Leader[];
+  clicks: Clicks;
+  fetchData: any;
+  increment: any;
+  setSession: any;
+  session: string;
+}
+
+const ClickPage: React.FC<ClickPage> = ({
   leaders,
   clicks,
   fetchData,
@@ -48,7 +68,7 @@ const ClickPage = ({
     fetchData();
   }, [clicks, fetchData]);
 
-  const handleClick = e => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     fetchData();
     increment(team, session);
@@ -89,12 +109,26 @@ const ClickPage = ({
   );
 };
 
-const mapStateToProps = ({ leaders, clicks, session }) => ({
+interface StateFromProps {
+  leaders: Leader[];
+  clicks?: Clicks;
+  session?: string;
+}
+
+interface DispatchFromProps {
+  increment: any;
+  fetchData: any;
+  setSession: any;
+}
+
+const mapStateToProps = ({ leaders, clicks, session }: any) => ({
   leaders,
   clicks,
   session
 });
 
-export default connect(mapStateToProps, { increment, fetchData, setSession })(
-  ClickPage
-);
+export default connect<object, DispatchFromProps>(mapStateToProps, {
+  increment,
+  fetchData,
+  setSession
+})(ClickPage);

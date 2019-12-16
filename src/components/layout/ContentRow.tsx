@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { appliftingBlue, globalWhite } from "../../constants";
 
-const Row = styled.div`
+const Row = styled.div<{ current: boolean; order: number }>`
   width: 100%;
   min-height: 10%;
   display: flex;

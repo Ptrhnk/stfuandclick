@@ -20,7 +20,12 @@ const Title = styled.p`
   margin-bottom: 0.4rem;
 `;
 
-export const Input = ({ value, onChange }) => {
+interface Input {
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const Input: React.FC<Input> = ({ value, onChange }) => {
   return (
     <Container>
       <Title>{"Enter your team name:"}</Title>
