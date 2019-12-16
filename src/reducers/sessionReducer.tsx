@@ -1,6 +1,11 @@
 import { SET_SESSION } from "../actions/types";
 
-const session = (state = {}, action) => {
+interface SessionAction {
+  type: typeof SET_SESSION;
+  session: string;
+}
+
+const session = (state = "", action: SessionAction): string => {
   switch (action.type) {
     case SET_SESSION:
       return action.session;
