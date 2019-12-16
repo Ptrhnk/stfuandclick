@@ -39,8 +39,8 @@ interface Leader {
 
 interface TopTenPage {
   leaders: Array<Leader>;
-  fetchData: any;
-  increment: any;
+  fetchData: () => void;
+  increment: (team: string, session: string) => void;
 }
 
 const TopTenPage: React.FC<TopTenPage> = ({
@@ -76,7 +76,7 @@ const TopTenPage: React.FC<TopTenPage> = ({
           <Header>
             <AlignedRow>
               <Input value={inputText} onChange={e => onChange(e)} />
-              <Button onClick={e => handleClick(e)} small />
+              <Button onClick={e => handleClick(e)} small={true} />
             </AlignedRow>
             <HeaderRow>
               <TopTen>{"TOP 10 Clickers"}</TopTen>
@@ -93,7 +93,17 @@ const TopTenPage: React.FC<TopTenPage> = ({
   );
 };
 
-const mapStateToProps = ({ leaders, clicks }: any) => ({
+interface Clicks {
+  your_clicks: number;
+  team_clicks: number;
+}
+
+interface StateFromProps {
+  leaders: Leader[];
+  clicks: Clicks;
+}
+
+const mapStateToProps = ({ leaders, clicks }: StateFromProps) => ({
   leaders,
   clicks
 });

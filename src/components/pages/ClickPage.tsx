@@ -44,9 +44,10 @@ interface Clicks {
 interface ClickPage {
   leaders: Leader[];
   clicks: Clicks;
-  fetchData: any;
-  increment: any;
-  setSession: any;
+  fetchData: () => void;
+  // increment: (team: string, session: string) => void;
+  increment: (team: any, session: string) => void;
+  setSession: (session: string) => void;
   session: string;
 }
 
@@ -84,7 +85,7 @@ const ClickPage: React.FC<ClickPage> = ({
       <Background>
         <PageContainer>
           <Header>
-            <Button onClick={e => handleClick(e)} />
+            <Button onClick={e => handleClick(e)} small={false} />
             <HeaderRow>
               <Box>
                 <div>Your clicks:</div>
@@ -111,23 +112,17 @@ const ClickPage: React.FC<ClickPage> = ({
 
 interface StateFromProps {
   leaders: Leader[];
-  clicks?: Clicks;
-  session?: string;
+  clicks: Clicks;
+  session: string;
 }
 
-interface DispatchFromProps {
-  increment: any;
-  fetchData: any;
-  setSession: any;
-}
-
-const mapStateToProps = ({ leaders, clicks, session }: any) => ({
+const mapStateToProps = ({ leaders, clicks, session }: StateFromProps) => ({
   leaders,
   clicks,
   session
 });
 
-export default connect<object, DispatchFromProps>(mapStateToProps, {
+export default connect(mapStateToProps, {
   increment,
   fetchData,
   setSession

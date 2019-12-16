@@ -24,7 +24,7 @@ const ClickBtn = styled.button<{ small: boolean }>`
 `;
 
 interface Button {
-  small?: any;
+  small: boolean;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
