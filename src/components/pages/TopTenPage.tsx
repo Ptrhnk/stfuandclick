@@ -64,26 +64,24 @@ const TopTenPage: React.FC<TopTenPage> = ({
   };
 
   return (
-    <>
-      <Background>
-        <PageContainer>
-          <Header>
-            <AlignedRow>
-              <Input value={inputText} onChange={e => onChange(e)} />
-              <Button onClick={e => handleClick(e)} small={true} />
-            </AlignedRow>
-            <HeaderRow>
-              <TopTen>{"TOP 10 CLICKERS:"}</TopTen>
-            </HeaderRow>
-          </Header>
-          <ContentHeading />
-          <Content>
-            <Leaderboard leaders={leaders} />
-          </Content>
-          <Footer>{"Want to be top? STFU and click!"}</Footer>
-        </PageContainer>
-      </Background>
-    </>
+    <Background>
+      <PageContainer>
+        <Header>
+          <AlignedRow>
+            <Input value={inputText} onChange={e => onChange(e)} />
+            <Button onClick={e => handleClick(e)} small={true} />
+          </AlignedRow>
+          <HeaderRow>
+            <TopTen>{"TOP 10 CLICKERS:"}</TopTen>
+          </HeaderRow>
+        </Header>
+        <ContentHeading />
+        <Content>
+          <Leaderboard leaders={leaders} />
+        </Content>
+        <Footer>{"Want to be top? STFU and click!"}</Footer>
+      </PageContainer>
+    </Background>
   );
 };
 

@@ -71,35 +71,33 @@ const ClickPage: React.FC<ClickPage> = ({
   };
 
   return (
-    <>
-      <Background>
-        <PageContainer>
-          <Header>
-            <Button onClick={e => handleClick(e)} small={false} />
-            <HeaderRow>
-              <Box>
-                <div>Your clicks:</div>
-                <Counter>{!_.isEmpty(clicks) ? clicks.your_clicks : 0}</Counter>
-              </Box>
-              <Box>
-                <div>Team clicks:</div>{" "}
-                <Counter>
-                  {!_.isEmpty(clicks) ? clicks.team_clicks : getClicks()}
-                </Counter>
-              </Box>
-            </HeaderRow>
-          </Header>
-          <ContentHeading />
-          <Content>
-            <Leaderboard leaders={leaders} team={team} />
-          </Content>
-          <Footer>
-            <div>{`Too lazy 2 click? Let UR fellaz click 4 U:`}</div>
-            <ReadOnlyInput value={`stfuandclick.com/${team}`} />
-          </Footer>
-        </PageContainer>
-      </Background>
-    </>
+    <Background>
+      <PageContainer>
+        <Header>
+          <Button onClick={e => handleClick(e)} small={false} />
+          <HeaderRow>
+            <Box>
+              <div>Your clicks:</div>
+              <Counter>{!_.isEmpty(clicks) ? clicks.your_clicks : 0}</Counter>
+            </Box>
+            <Box>
+              <div>Team clicks:</div>{" "}
+              <Counter>
+                {!_.isEmpty(clicks) ? clicks.team_clicks : getClicks()}
+              </Counter>
+            </Box>
+          </HeaderRow>
+        </Header>
+        <ContentHeading />
+        <Content>
+          <Leaderboard leaders={leaders} team={team} />
+        </Content>
+        <Footer>
+          <div>{`Too lazy 2 click? Let UR fellaz click 4 U:`}</div>
+          <ReadOnlyInput value={`stfuandclick.com/${team}`} />
+        </Footer>
+      </PageContainer>
+    </Background>
   );
 };
 
